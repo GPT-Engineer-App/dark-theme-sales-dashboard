@@ -1,9 +1,35 @@
 import { useState } from "react";
-import { Box, Container, VStack, HStack, Text, Input, Button, IconButton, Avatar, Table, Thead, Tbody, Tr, Th, Td } from "@chakra-ui/react";
+import { Box, Container, VStack, HStack, Text, Input, Button, IconButton, Avatar, Table, Thead, Tbody, Tr, Th, Td, useColorMode, useColorModeValue, extendTheme, ChakraProvider } from "@chakra-ui/react";
 import Calendar from "../components/Calendar";
 import { FaHome, FaSearch, FaPlus, FaUser, FaChartBar, FaTasks, FaCalendarAlt } from "react-icons/fa";
 
 // Custom theme
+const theme = extendTheme({
+  styles: {
+    global: {
+      body: {
+        bg: "#1A1A1A",
+        color: "#FFFFFF",
+      },
+    },
+  },
+  colors: {
+    primary: {
+      500: "#FF6600",
+    },
+    secondary: {
+      500: "#C2BFBF",
+    },
+    accent: {
+      green: "#00FF00",
+      orange: "#FF9900",
+    },
+  },
+  fonts: {
+    heading: "Roboto, sans-serif",
+    body: "Open Sans, sans-serif",
+  },
+});
 
 const Sidebar = () => (
   <Box bg="#242424" w="250px" p="4" color="white">
@@ -186,6 +212,10 @@ const Dashboard = () => (
   </Box>
 );
 
-const Index = () => <Dashboard />;
+const Index = () => (
+  <ChakraProvider theme={theme}>
+    <Dashboard />
+  </ChakraProvider>
+);
 
 export default Index;
