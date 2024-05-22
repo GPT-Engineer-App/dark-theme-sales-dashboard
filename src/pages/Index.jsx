@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Box, Container, VStack, HStack, Text, Input, Button, IconButton, Avatar, Table, Thead, Tbody, Tr, Th, Td, useColorMode, useColorModeValue, extendTheme, ChakraProvider } from "@chakra-ui/react";
-import Calendar from "../components/Calendar";
 import { FaHome, FaSearch, FaPlus, FaUser, FaChartBar, FaTasks, FaCalendarAlt } from "react-icons/fa";
 
 // Custom theme
@@ -98,13 +97,8 @@ const LeadsBySourceChart = () => (
     <Text fontSize="lg" fontWeight="bold">
       Leads by Source
     </Text>
-    <Box bg="#242424" h="200px" mt="4" borderRadius="md">
-      <Text color="white">Referral: 40%</Text>
-      <Text color="white">Social Media: 30%</Text>
-      <Text color="white">Organic Search: 20%</Text>
-      <Text color="white">Paid Ads: 5%</Text>
-      <Text color="white">Direct Traffic: 5%</Text>
-    </Box>
+    {/* Placeholder for chart */}
+    <Box bg="#242424" h="200px" mt="4" borderRadius="md"></Box>
   </Box>
 );
 
@@ -167,14 +161,11 @@ const AppointmentsAndTasks = () => (
       Appointments and Tasks
     </Text>
     <Box mt="4">
-      <Calendar />
+      {/* Placeholder for calendar */}
+      <Box bg="#242424" h="200px" borderRadius="md"></Box>
     </Box>
     <Box mt="4">
-      {[
-        { task: "RV Viewing", date: "2024-05-23" },
-        { task: "Test Drive", date: "2024-05-24" },
-        { task: "Follow-up Call", date: "2024-05-25" },
-      ].map((task, index) => (
+      {["RV Viewing", "Test Drive"].map((task, index) => (
         <HStack key={index} justify="space-between" bg="#242424" p="2" borderRadius="md" mt="2">
           <Text color="#C2BFBF">{task}</Text>
           <Button size="sm" bg="#242424" color="white">
