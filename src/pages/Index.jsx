@@ -1,10 +1,10 @@
-import { useState } from "react";
-import { Box, Container, VStack, HStack, Text, Input, Button, IconButton, Avatar, Table, Thead, Tbody, Tr, Th, Td, useColorMode, useColorModeValue, extendTheme, ChakraProvider } from "@chakra-ui/react";
+import { useState, useEffect } from "react";
+import { Box, Container, VStack, HStack, Text, Input, Button, IconButton, Avatar, Table, Thead, Tbody, Tr, Th, Td, useColorMode, useColorModeValue, extendTheme, ChakraProvider, Switch } from "@chakra-ui/react";
 import { FaHome, FaSearch, FaPlus, FaUser, FaChartBar, FaTasks, FaCalendarAlt } from "react-icons/fa";
 import Calendar from "../components/Calendar.jsx";
 
 // Custom theme
-const theme = extendTheme({
+const darkTheme = extendTheme({
   styles: {
     global: {
       body: {
@@ -31,8 +31,35 @@ const theme = extendTheme({
   },
 });
 
-const Sidebar = () => (
-  <Box bg="#242424" w="250px" p="4" color="white">
+const lightTheme = extendTheme({
+  styles: {
+    global: {
+      body: {
+        bg: "#FFFFFF",
+        color: "#000000",
+      },
+    },
+  },
+  colors: {
+    primary: {
+      500: "#FF6600",
+    },
+    secondary: {
+      500: "#C2BFBF",
+    },
+    accent: {
+      green: "#00FF00",
+      orange: "#FF9900",
+    },
+  },
+  fonts: {
+    heading: "Roboto, sans-serif",
+    body: "Open Sans, sans-serif",
+  },
+});
+
+const Sidebar = ({ toggleTheme, isDark }) => (
+  <Box bg={isDark ? "#242424" : "#F0F0F0"} w="250px" p="4" color={isDark ? "white" : "black"}>
     <VStack align="start" spacing="4">
       <HStack>
         <FaHome />
@@ -53,6 +80,10 @@ const Sidebar = () => (
       <HStack>
         <FaTasks />
         <Text>Inventory</Text>
+      </HStack>
+      <HStack>
+        <Text>Light Theme</Text>
+        <Switch isChecked={!isDark} onChange={toggleTheme} />
       </HStack>
     </VStack>
   </Box>
@@ -205,16 +236,17 @@ const Dashboard = () => (
 );
 
 const Index = () => {
-  const appointments = [
-    { task: "RV Viewing", date: "2024-05-23" },
-    { task: "Test Drive", date: "2024-05-24" },
-    { task: "Follow-up Call", date: "2024-05-25" },
-  ];
+  const [isDark, setIsDark] = useState(true);
+  const toggleTheme = () => setIsDark(!isDark);
+
+  useEffect(() => {
+    document.body.style.backgroundColor = isDark ? "#000000" : "#FFFFFF";
+  }, [isDark]);
 
   return (
-    <ChakraProvider theme={theme}>
-      <Box bg="#000000" minH="100vh" color="white">
-        <Dashboard />
+    <ChakraProvider theme={isDark ? darkTheme : lightTheme}>
+      <Box bg={isDark ? "#000000" : "#FFFFFF"} minH="100vh" color={isDark ? "white" : "black"}>
+        <Dashboard toggleTheme={toggleTheme} isDark={isDark} />
       </Box>
     </ChakraProvider>
   );
