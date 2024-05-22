@@ -5,7 +5,7 @@ const Calendar = () => {
   const dates = Array.from({ length: 31 }, (_, i) => i + 1);
 
   return (
-    <Box bg="linear-gradient(45deg, #ff6600, #333333)" p="4" borderRadius="md">
+    <Box bg="linear-gradient(45deg, #000000, #333333)" p="4" borderRadius="md">
       <Box display="grid" gridTemplateColumns="repeat(7, 1fr)" gap="2">
         {days.map((day) => (
           <Text key={day} color="#33ff33" textAlign="center">
