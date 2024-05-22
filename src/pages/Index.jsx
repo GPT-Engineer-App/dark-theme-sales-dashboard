@@ -215,12 +215,6 @@ const Index = () => {
     <ChakraProvider theme={theme}>
       <Box bg="#000000" minH="100vh" color="white">
         <Dashboard />
-        <Box bg="linear-gradient(45deg, #ff6600, #333333)" p="4" borderRadius="md">
-          <Text fontSize="lg" fontWeight="bold" mb="2">
-            Calendar
-          </Text>
-          <Calendar />
-        </Box>
       </Box>
     </ChakraProvider>
   );
