@@ -61,7 +61,7 @@ const Header = () => (
   <Box bgImage="url('https://images.unsplash.com/photo-1520101244246-293f77ffc39e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxfHxSVnMlMjBiYWNrZ3JvdW5kfGVufDB8fHx8MTcxNjMxOTc2NHww&ixlib=rb-4.0.3&q=80&w=1080" bgSize="cover" bgPos="center" p="8" color="white" textAlign="center" position="relative">
     <Box bg="rgba(0, 0, 0, 0.5)" p="8" borderRadius="md">
       <Text fontSize="2xl" fontWeight="bold">
-        Good morning, Airstream Adventures!
+        Good morning, Cannon!
       </Text>
       <Text fontSize="lg" color="#C2BFBF">
         You have 5 new leads today... Let's make it a great day!
