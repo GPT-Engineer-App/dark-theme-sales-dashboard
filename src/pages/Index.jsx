@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Box, Container, VStack, HStack, Text, Input, Button, IconButton, Avatar, Table, Thead, Tbody, Tr, Th, Td, useColorMode, useColorModeValue, extendTheme, ChakraProvider } from "@chakra-ui/react";
 import { FaHome, FaSearch, FaPlus, FaUser, FaChartBar, FaTasks, FaCalendarAlt } from "react-icons/fa";
+import Calendar from "../components/Calendar.jsx";
 
 // Custom theme
 const theme = extendTheme({
@@ -203,10 +204,26 @@ const Dashboard = () => (
   </Box>
 );
 
-const Index = () => (
-  <ChakraProvider theme={theme}>
-    <Dashboard />
-  </ChakraProvider>
-);
+const Index = () => {
+  const appointments = [
+    { task: "RV Viewing", date: "2024-05-23" },
+    { task: "Test Drive", date: "2024-05-24" },
+    { task: "Follow-up Call", date: "2024-05-25" },
+  ];
+
+  return (
+    <ChakraProvider theme={theme}>
+      <Box bg="#000000" minH="100vh" color="white">
+        <Dashboard />
+        <Box bg="linear-gradient(45deg, #ff6600, #333333)" p="4" borderRadius="md">
+          <Text fontSize="lg" fontWeight="bold" mb="2">
+            Calendar
+          </Text>
+          <Calendar />
+        </Box>
+      </Box>
+    </ChakraProvider>
+  );
+};
 
 export default Index;
