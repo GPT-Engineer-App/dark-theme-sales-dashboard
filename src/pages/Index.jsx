@@ -99,7 +99,7 @@ const LeadsBySourceChart = () => (
       Leads by Source
     </Text>
     {/* Placeholder for chart */}
-    <Box bg="#242424" h="200px" mt="4" borderRadius="md"></Box>
+    <Calendar />
   </Box>
 );
 
