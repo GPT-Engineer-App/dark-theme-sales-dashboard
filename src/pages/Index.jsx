@@ -31,7 +31,7 @@ const theme = extendTheme({
   },
 });
 
-const Sidebar = () => (
+const Sidebar = ({ onLogout }) => (
   <Box bg="#242424" w="250px" p="4" color="white">
     <VStack align="start" spacing="4">
       <HStack>
@@ -189,7 +189,7 @@ const QuickActions = () => (
   </HStack>
 );
 
-const Dashboard = () => (
+const Dashboard = ({ onLogout }) => (
   <Box display="flex">
     <Sidebar />
     <Container maxW="container.xl" p="4">
@@ -204,7 +204,7 @@ const Dashboard = () => (
   </Box>
 );
 
-const Index = () => {
+const Index = ({ onLogout }) => {
   const appointments = [
     { task: "RV Viewing", date: "2024-05-23" },
     { task: "Test Drive", date: "2024-05-24" },
